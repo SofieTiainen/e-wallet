@@ -119,7 +119,7 @@ export const CreateCard = () => {
 
         if (Object.keys(newErrors).length === 0) {
 
-            setButtonText("Success! New card has been created.")
+            setButtonText(`Success!`)
             setTimeout(() => {
                 setButtonText("Add card")
             }, 2000);

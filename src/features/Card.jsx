@@ -6,12 +6,9 @@ import americanExpressLogo from "../assets/Americanexpresslogo.png";
 import mastercardLogo from "../assets/mastercardLogo.png";
 
 
-
-
 export const Card = (props) => {
     const dispatch = useDispatch();
     const {active, cardNumber, cardholder, expireMonth, expireYear, vendor, id} = props
-
 
     const handleActiveCard = () => {
         dispatch(activeCard(id))
@@ -40,8 +37,7 @@ export const Card = (props) => {
         {active ? (
           <div>
             <div className={styles.card}>
-            <img className={styles.vendor} src={logo} alt="Visa Logo" />
-
+            <img className={styles.vendor} src={logo} alt={`${vendor} Logo`}  />
             <p className={styles.cardnumber}>{cardNumber}</p>
             <div className={styles.cardholder}>
               <p>CARDHOLDER</p>
@@ -55,9 +51,8 @@ export const Card = (props) => {
           </div>
         ) : (
           <div className={styles.container}>
-            <button className={styles.card} onClick={handleActiveCard}>
-            <div className={styles.card}>
-            <img className={styles.vendor} src={logo} alt="Visa Logo" />
+            <div className={styles.card} onClick={handleActiveCard}>
+            <img className={styles.vendor} src={logo} alt={`${vendor} Logo`}  />
             <p className={styles.cardnumber}>{cardNumber}</p>
             <div className={styles.cardholder}>
               <p>CARDHOLDER</p>
@@ -68,8 +63,7 @@ export const Card = (props) => {
               <p>{expireMonth}/{expireYear}</p>
             </div>
             </div>
-            </button>
-          </div>
+            </div>
         )}
         {!active? (<button className={styles.delete} onClick={handleDeleteCard}>Delete card</button>) : null }
       </div>
